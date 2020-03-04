@@ -49,8 +49,8 @@ public class PasswordChecker
     }
     public static boolean passwordIsOk(String password)throws Exception
     {
-
-        if (password.length() < 8 || !password.matches("(.*[a-z].*)") || password.isEmpty())
+        //noinspection SingleStatementInBlock
+        if ((password.length() < 8) || !password.matches("(.*[a-z].*)"))
         {
             throw new Exception("Password should meet at least 3 of the conditions.\n"+
                     "1. Password length should be 8 characters long.\n"+
@@ -65,11 +65,7 @@ public class PasswordChecker
                     "1. Password should contain uppercase.\n"+
                     "2. Password should have at least one special case.\n"+
                     "3. Password should have at least one digit.");
-            //System.out.println();
         }
-
-
-
         return true;
     }
     public static boolean passwordIsNeverOk(String password) throws Exception
